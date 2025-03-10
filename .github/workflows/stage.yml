@@ -55,4 +55,4 @@ jobs:
                     sudo docker run -d --name sgros-react-webapp -p 3000:3000 637527414831.dkr.ecr.us-east-2.amazonaws.com/sgros:latest
                     echo "Done" 
                     docker system prune -a --force 
-
+                    '
