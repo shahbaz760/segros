@@ -1,0 +1,30 @@
+name: Smaple stage app
+
+on:
+  push:
+      branches:
+        - master:
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+          - name: Set up AWS CLI
+            uses: aws-actions/configure-aws-credentials@v1
+            with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+                aws-region: us-east-2
+            
+          - name: ecr login
+            run: |
+                aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 637527414831.dkr.ecr.us-east-2.amazonaws.com
+                echo "ligin success"
+                docker build -t sgros .
+                echo "build success"
+                docker tag sgros:latest 637527414831.dkr.ecr.us-east-2.amazonaws.com/sgros:latest
+                echo "tag success"
+                docker push 637527414831.dkr.ecr.us-east-2.amazonaws.com/sgros:latest
+                echo "push success"
