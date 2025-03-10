@@ -3,7 +3,7 @@ name: Smaple stage app
 on:
   push:
     branches:
-        - master  
+        - stage  
   workflow_dispatch:
   
 jobs:
