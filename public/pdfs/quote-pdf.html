@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0px;
+            font-family: Open Sans, sans-serif;
+        }
+
+        h2 {
+            font-size: 16px !important;
+        }
+
+        h3 {
+            font-size: 14px !important;
+        }
+
+        p,
+        li {
+            font-size: 12px !important;
+        }
+
+        label {
+            font-size: 10px !important;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <div style="font-family: Open Sans, sans-serif;">
+
+        <div>
+            <div style="padding: 20px;">
+                <h2
+                    style="font-size: 22px;color: #122137;font-weight: 700;margin-bottom: 14px !important;letter-spacing: 0px;">
+                    COTIZACIÓN SEGURO DE TRANSPORTE
+                </h2>
+                <p style="font-size: 12px !important;color: #122137;font-weight: 400">
+                    La presente cotización tiene una validez de 5 días calendario, no significa aceptación del riesgo.
+                    La
+                    emisión de la póliza está sujeta a verificación y análisis de la información entregada por parte del
+                    cliente, a la no modificación sustancial del riesgo, Seguros del Pichincha se reserva el derecho de
+                    solicitar información adicional a fin de analizar el riesgo propuesto, en cumplimiento de las normas
+                    sobre
+                    prevención de lavado de activos. En caso de que a la cotización el cliente haya acompañado un pago,
+                    no
+                    obliga a Seguros del Pichincha a la emisión de la póliza, si luego del análisis del riesgo, la
+                    compañía de
+                    seguros decide no aceptarlo. En esos casos se realizará el proceso de devolución del pago realizado.
+                </p>
+                <div style="width: 100%;height: 1px;background: #E4E4E4; margin: 16px 0px 16px;"></div>
+                <h2
+                    style="font-size: 22px;color: #122137;font-weight: 700;margin-bottom: 20px !important;letter-spacing: 0px;text-transform: capitalize;">
+                    Datos del asegurado
+                </h2>
+                <div style="display: flex; justify-content: space-between;flex-wrap: wrap;">
+                    <div
+                        style="    box-sizing: border-box;    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 70%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            RAZÓN SOCIAL
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:quote_company_name}}
+                        </h3>
+                    </div>
+                    <div
+                        style="    box-sizing: border-box;    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 29%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            RUC
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:company_ruc}}
+                        </h3>
+                    </div>
+                    <div
+                        style="box-sizing: border-box;    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 100%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            DIRECCIÓN
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            <!-- {{:quote_company_address.address}}, {{:quote_company_address.address_number}},
+                            {{:quote_company_address.neighborhood}},
+                            {{:quote_company_address.ecuador_city.name}}, {{:quote_company_address.ecuador_state.name}} -->
+                            <!-- {{:quote_company_address.zipcode}} -->
+                            {{:quote_company_address.address || '--'}},
+                            {{:quote_company_address.address_number || '--'}},
+                            {{:quote_company_address.neighborhood || '--'}},
+                            {{:quote_company_address.ecuador_city?.name || '--'}},
+                            {{:quote_company_address.ecuador_state?.name || '--'}}
+                        </h3>
+                    </div>
+                    <div
+                        style="box-sizing: border-box;    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 100%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            CORREDOR
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:user_company_name}}
+                        </h3>
+                    </div>
+                </div>
+
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 16px 0px !important;">Cobertura </h2>
+                <div style="display: flex; justify-content: flex-start;gap:6px;flex-wrap: wrap;">
+                    <div
+                        style=" box-sizing: border-box;    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;text-transform: uppercase;">
+                            línea de negocio
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            Transporte
+                        </h3>
+                    </div>
+                    <!-- {{if insurance_type_id ==2}}
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;text-transform: uppercase;">
+                            Modalidad
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            Embarcadores
+                        </h3>
+                    </div>
+                    {{/if}} -->
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            PRODUCTO
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:product_name}}
+                        </h3>
+                    </div>
+
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;text-transform: uppercase;">
+                            Tipo de póliza
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+
+                            {{:insurance_type_name}}
+                        </h3>
+                    </div>
+                    {{if insurance_type_id ==1}}
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            TRAYECTO DESDE
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            <ng-container *ngIf="quotesData?.product_id == 3;else sourcelist">
+                                {{:source}}
+                            </ng-container>
+                            <ng-template #sourcelist>
+                                <ng-container
+                                    *ngFor="let source of quotesData?.quote_shipment?.shipment_route_details; index as i">
+
+
+
+                                </ng-container>
+                            </ng-template>
+                        </h3>
+                    </div>
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 32.6%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            TRAYECTO HASTA
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            <ng-container *ngIf="quotesData?.product_id == 2;else destination">
+                                {{:destination}}
+                            </ng-container>
+                            <ng-template #destination>
+                                <ng-container
+                                    *ngFor="let source of quotesData?.quote_shipment?.shipment_route_details;index as i">
+
+                                </ng-container>
+                            </ng-template>
+
+                        </h3>
+                    </div>
+                    {{/if}}
+                </div>
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 16px 0px 8px !important;">Valor
+                    Asegurado
+                </h2>
+                <p style="color: #000000;font-size: 12px !important;font-weight: 500;margin-bottom:20px"> Derechos
+                    arancelarios
+                    acorde a lo indicado en la nomenclatura estipulada por la aduana, gastos adicionales, serán
+                    debidamente
+                    justificados y respaldados en caso de siniestro, IVA no es indemnizable por ser crédito tributario.
+                </p>
+
+                <div
+                    style="display: flex; justify-content: space-between;flex-wrap: wrap;justify-content: space-between;">
+                    {{if insurance_type_id ==1}}
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 49.5%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            COSTO + FLETE:
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:goods_value_and_fees}}
+                        </h3>
+                    </div>
+                    <div
+                        style="    box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 49.5%;margin-left: 1%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            % DERECHOS ARANCELARIOS:
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            <ng-container
+                                *ngFor="let expected_profit of quotesData?.transport_good?.transport_good_details; index as i">
+                                {{:expenses_percentage}}%
+
+                            </ng-container>
+                        </h3>
+                    </div>
+
+                    <!-- <div
+                        style="    box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 49.5%;margin-bottom: 1%">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            SOBRESEGURO:
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:expected_profit_percentage}}%
+                        </h3>
+                    </div> -->
+                    <!-- <div
+                        style="    margin-bottom: 3%;box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width: 49.5%;margin-left: 1%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            % GASTOS ADICIONALES:
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            <ng-container
+                                *ngFor="let expense_percentage of quotesData?.transport_good?.transport_good_details; index as i">
+                                {{:taxes}}
+                            </ng-container>
+                        </h3>
+                    </div> -->
+                    {{/if}}
+
+                    <div
+                        style="box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width:  49.5%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            TOTAL VALOR ASEGURADO:
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+
+                            {{:total_limit}}
+                        </h3>
+                    </div>
+
+                    <div
+                        style="box-sizing: border-box;background: #F8F8FA; height: 76px;padding: 18px;display: flex;flex-direction: column;justify-content: center; width:49.5%;">
+                        <label
+                            style="display: block;font-size: 11px;color: #9494A4;font-weight: 700;margin-bottom: 0px;">
+                            TASA
+                        </label>
+                        <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                            {{:insurance_rate+'%'}}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2nd page -->
+        <div>
+            <div class="pdf__body" style="padding: 0px 20px ;">
+                {{if insurance_type_id ==1}}
+                <div
+                    style=" box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px; width: 100%;margin-bottom: 1%">
+                    <table style="width: 100%;border-spacing: 0px;">
+                        <tr style="border-right: 1px solid #D4D4D4;">
+                            <th
+                                style="border-top: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                <b> PRIMA
+                                    NETA</b>
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span><b>{{:grossValue}}</b>
+                            </td>
+
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+                            <th
+                                style="border-top: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                C. SCVS
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span>{{:tax_scvs}}
+                            </td>
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+                            <th
+                                style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                C. SSC
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span>{{:tax_ssc}}
+                            </td>
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+                            <th
+                                style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                DERECHOS DE EMISSIÓN *
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span>{{:tax_emission}}
+                            </td>
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+
+                            <th
+                                style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                <b>SUBTOTAL</b>
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span><b>{{:sub_total}}</b>
+                            </td>
+
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+                            <th
+                                style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                IVA
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span>{{:tax_iva}}
+                            </td>
+                        </tr>
+                        <tr style="border-right: 1px solid #D4D4D4;">
+
+                            <th
+                                style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: left;font-size: 12px;color: #0A1728;font-weight: 400;letter-spacing: 0.6px;">
+                                <b>PRIMA TOTAL</b>
+                            </th>
+                            <td style="border-top: 1px solid #D4D4D4;border-bottom: 1px solid #D4D4D4;text-align: right;font-size: 12px;color: #2D2D2D;font-weight: 400;width: 150px;border-left: 1px solid #D4D4D4;
+      padding:14px 10px;"><span style="color: #7BA3DF;font-size: 12px;font-weight: 700;padding-right: 14px;"></span><b>{{:total_amount}}</b>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+                {{/if}}
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 20px 0px !important;">Bienes
+                    Asegurados
+                </h2>
+                <div
+                    style=" box-sizing: border-box;background: #F8F8FA; min-height: 76px;padding: 18px; width: 100%;margin-bottom: 1%">
+
+                    {{for goods}}
+                    {{for dataValues.good_name}}
+                    <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                        {{:}}</h3>
+                    {{/for}}
+                    {{/for}}
+
+                </div>
+                <!--  -->
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Bienes y
+                    Mercaderías
+                    Excluidas </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">
+                        Dinero en efectivo y valores, piedras y metales preciosos, joyas, relojes 
+                    </p>
+                    <p style="color: #373A3C; font-size: 14px; font-weight: 600; line-height: 20px;">
+                        Obras de arte, piezas de colección y antigüedades
+                    </p>
+                    <p style="color: #373A3C; font-size: 14px; font-weight: 600; line-height: 20px;">
+                        Tarjetas de crédito
+                    </p>
+                </div>
+
+                <!--  -->
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Países
+                    Excluidos </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">
+                        Cuba, Irán, Corea del Norte, Siria, Rusia, Crimea, regiones de Donetsk y Luhansk de Ucrania,
+                        Afganistán, Balcanes, Bielorrusia, Birmania (Myanmar), República Centroafricana, República
+                        Democrática del Congo, Etiopía, Hong Kong, Irak, Líbano, Libia, Malí, Nicaragua, Somalia, Sudán
+                        del Sur, Sudán, Venezuela, Yemen
+                    </p>
+                </div>
+                <!--  -->
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Detalle de
+                    Cobertura
+                    Elegida </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <!-- <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">Libre de Avería
+                        Particular</p> -->
+                    {{for quote_basic_coverages}}
+                    <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                        {{:}}
+                    </h3>
+                    {{/for}}
+                </div>
+            </div>
+        </div>
+        <!-- 3rd -->
+        <div>
+            <div class="pdf__body" style="padding: 20px;">
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin-bottom: 20px !important;">Cláusulas de
+                    Transporte </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    {{for quote_additional_coverages}}
+                    <h3 style="color: #373A3C;font-size: 18px;font-weight: 700;margin-bottom: 0px;">
+                        {{:}}
+                    </h3>
+                    {{/for}}
+                </div>
+                <!--  -->
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Garantías de
+                    Cobertura
+                </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">
+                        El transporte terrestre deberá efectuado por empresas de transporte legalmente constituidas, y
+                        en
+                        vehículos debidamente aprobados por las autoridades competentes y/o por la Compañía, conducidos
+                        por
+                        choferes que posean licencia de conductor para el tipo de vehículo que conducen.Los vehículos
+                        utilizados
+                        serán aprobados en consideración a las carreteras, zonas geográficas, clase de mercadería, peso
+                        y
+                        volumen del objeto transportado. Asimismo, las operaciones de carga y/o descarga del objeto
+                        Asegurado se
+                        lo efectuarán utilizando el equipo apropiado de acuerdo al peso, clase de mercadería y volumen
+                        de la
+                        carga.Vehículo(s) utilizado(s) para la transportación de la mercadería, sin
+                        publicidad. Vehículos de
+                        transporte terrestre en contenedor o furgón cerrados.Mantener rutas establecidas y e n caso de
+                        que el
+                        transporte sea interrumpido por descanso, alimentación del conductor o daños en la carretera, o
+                        por
+                        cualquier otra causa imprevista, estará a cargo del conductor el establecer un lugar seguro de
+                        parada.
+                        Si debido a esta interrupción por fuerza mayor, el(los) vehículo(s) debe(n) permanecer en la
+                        noche,
+                        deben tomarse todas las medidas para no dejar el(los) vehículo(s) sin custodia.El contrato de
+                        transporte
+                        debe realizarse con empresas debidamente constituidas en el Ecuador y legalmente autorizadas por
+                        la
+                        autoridad competente para el transporte de carga por carretera, con vehículos de edad no
+                        superior a 15
+                        años. Si la edad de los vehículos es superior a 15 años, pero no superior a 20 años de
+                        antigüedad, el
+                        deducible estipulado en las condiciones particulares de esta Póliza para este seguro se
+                        incrementará al
+                        30% del valor de la pérdida, a menos que se estipule otra cosa en las condiciones particulares
+                        de esta
+                        Póliza.En caso de utilizarse más de un vehículo para la movilización de la mercadería, los
+                        vehículos
+                        viajarán en convoy.Las movilizaciones se efectuarán, únicamente, dentro del horario comprendido
+                        entre
+                        las 6h00 y las 18h00. Si las movilizaciones se efectúan fuera de estos horarios, el deducible
+                        ascenderá
+                        al 30% del valor de la pérdida, a menos que se estipule otra cosa en las condiciones
+                        particulares de
+                        esta Póliza.Si la mercancía es transportada en vehículos de propiedad del Asegurado, y así ha
+                        sido
+                        aceptado por escrito por la Compañía, los mismos deberán estar en buenas condiciones mecánicas y
+                        adecuadas para transportar el tipo de mercancías para lo cual están siendo utilizados.
+                    </p>
+                </div>
+                <!--  -->
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Transbordos
+                </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">
+                        Los transbordos no considerados inicialmente en el trayecto asegurado, estarán permitidos
+                        sujetándose a
+                        una tasa de recargo adicional de 0,10% sobre el valor asegurado. La delegación que otorgue el
+                        Asegurado
+                        a terceros para el cumplimiento de esta cláusula, no le exime de responsabilidad alguna. Estadía
+                        en
+                        Puertos 60 días
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- 4th -->
+        <div>
+            <div class="pdf__body" style="padding: 20px;">
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin-bottom: 20px !important;">Control de
+                    Riesgos
+                </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px;">INSPECCIÓN EN PUERTO
+                    </p>
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px;">
+                        Embarques superiores a USD $40,000.00 deberán contar con Inspección en Puerto a cargo del
+                        asegurado.
+                    </p>
+
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px;margin-top: 20px;">
+                        CANDADO
+                        SATELITAL + APOYO Y REACCIÓN EN RUTA</p>
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px;">
+                        Todos los embarques desde USD $50.000 deberán contar con Candado Satelital + apoyo y reacción en
+                        ruta. A
+                        cargo del asegurado.
+                    </p>
+
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px; margin-top: 20px;">
+                        CUSTODIA
+                        ARMADA</p>
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 700;line-height: 20px;">
+                        Embarques de PRODUCTOS DE ALTO RIESGO a partir de USD $35,000.00 deberán contar con CUSTODIA
+                        ARMADA EN
+                        VEHÍCULO A PARTE CON MÍNIMO 3 HOMBRES ARMADOS. Definición de productos en Cláusula de Definición
+                        de
+                        Productos de Alto Riesgo. A cargo del asegurado.
+                    </p>
+
+                </div>
+                <h2 style="font-size: 22px;color: #122137;font-weight: 700;margin: 24px 0px !important;">Documentos en
+                    caso de
+                    Siniestro </h2>
+                <div style="    box-sizing: border-box;background: #F8F8FA;border-radius: 6px;padding: 20px;">
+                    <p style="color:#373A3C;font-size: 14px;font-weight: 600;line-height: 20px;">
+                        Documentación conforme condiciones generales Art. 21. de la póliza
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- ======================================= -->
+        <!-- ======================================= -->
+        <!-- ======================================= -->
+
+    </div>
+</body>
+
+</html>

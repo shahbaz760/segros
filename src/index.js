@@ -1,0 +1,63 @@
+import Admin from './Admin';
+import Agency from './Agency';
+import Auth from './Auth';
+import Broker from './Broker';
+import Claims from './Claims';
+import Client from './Client';
+import Common from './Common';
+import Company from './Company';
+import Dashboard from './Dashboard';
+// import Endorsements from './Endorsements';
+import Financial from './Financial';
+import InsuranceCompany from './InsuranceCompany';
+import Proposal from './Proposal';
+import Quote from './Quote';
+import Transaction from './Transaction';
+//import SporadicBoarding from './SporadicBoarding';
+import SubAdmin from './SubAdmin';
+import Application from './Applications';
+export default class Routes {
+    constructor(router, db) {
+        this.router = router;
+        this.DatabaseConnect = db;
+    }
+    async routesRegistration() {
+        this.db = await this.DatabaseConnect.getDB();
+        this.auth = new Auth(this.router, this.db);
+        this.broker = new Broker(this.router, this.db);
+        this.admin = new Admin(this.router, this.db);
+        this.agency = new Agency(this.router, this.db);
+        this.subAdmin = new SubAdmin(this.router, this.db);
+        this.common = new Common(this.router, this.db);
+        this.claims = new Claims(this.router, this.db);
+        this.quote = new Quote(this.router, this.db);
+        this.proposal = new Proposal(this.router, this.db);
+        this.dashboard = new Dashboard(this.router, this.db);
+        this.financial = new Financial(this.router, this.db);
+        this.client = new Client(this.router, this.db);
+        //this.endorsements = new Endorsements(this.router, this.db);
+        this.company = new Company(this.router, this.db);
+        this.insuranceCompany = new InsuranceCompany(this.router, this.db);
+        //this.sporadicBoarding = new SporadicBoarding(this.router, this.db);
+        this.transaction = new Transaction(this.router, this.db);
+        this.application = new Application(this.router, this.db);
+        await this.auth.routes();
+        await this.broker.routes();
+        await this.admin.routes();
+        await this.agency.routes();
+        await this.subAdmin.routes();
+        await this.common.routes();
+        await this.claims.routes();
+        await this.quote.routes();
+        await this.proposal.routes();
+        await this.dashboard.routes();
+        await this.financial.routes();
+        await this.client.routes();
+        // await this.endorsements.routes();
+        await this.company.routes();
+        await this.insuranceCompany.routes();
+        // await this.sporadicBoarding.routes();
+        await this.transaction.routes();
+        await this.application.routes();
+    }
+};

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+</head>
+<style>
+    body {
+        font-family: 'Open Sans', sans-serif;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .content-head {
+        margin-top: 15px;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    .content-head p {
+        font-size: 11px;
+    }
+
+    .content-head .box {
+        background-color: #F8F8FA;
+        margin: 6px;
+        padding: 10px;
+    }
+
+    .content-head .box .lightext {
+        color: #9494A4;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .content-head .box p {
+        color: #373A3C;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 6px 0px;
+    }
+
+    .content-head .box p {
+        color: #373A3C;
+
+    }
+
+    .bottom-content-pagination p,
+    span {
+        font-size: 13px;
+        margin-bottom: 5px;
+        margin-top: 0;
+        color: #707070;
+    }
+
+    .bottom-content-pagination {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3rem;
+    }
+
+    .bottom-content-pagination .left,
+    .right {
+        display: flex;
+        font-size: 13px;
+    }
+
+    hr {
+        border-color: #eaeaea45 !important;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .insured-data span {
+        color: #929AA4;
+        font-size: 11px;
+
+    }
+
+    .insured-data p {
+        color: #232323;
+        font-size: 11px;
+    }
+
+    .insured-data td {
+        width: 37%;
+    }
+
+    .insurance-data table tr td .lightext {
+        width: 85px;
+    }
+
+    th,
+    td {
+        padding: 3px;
+        text-align: left;
+    }
+
+    table tr td .lightext {
+        width: 85px;
+        display: inline-block;
+        font-weight: 600;
+        color: #929AA4;
+        font-size: 11px;
+    }
+
+    table tr td .darktext {
+        color: #373A3C;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+
+    .content-page {
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    h2 {
+        margin-bottom: 4px;
+        font-size: 18px !important;
+    }
+
+    .light-bg {
+        background-color: #F8F8FA;
+        padding: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .light-bg span {
+        color: #9494A4;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .light-bg p {
+        color: #373A3C;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .main-points {
+        margin-top: 1rem;
+    }
+
+    .main-points p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .premium-statement table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 1rem;
+    }
+
+    .premium-statement table th {
+        font-size: 11px;
+        font-weight: 400;
+        color: #9494A4;
+        padding: 10px 25px;
+    }
+
+    .premium-statement table td {
+        font-size: 12px;
+
+    }
+
+    .table-list {
+        background-color: #F8F8FA;
+        width: 100%;
+        border-bottom: 2px solid #fff;
+
+    }
+
+    .table-list td {
+        border-radius: 2px;
+        padding: 6px 18px;
+    }
+
+    .covers table {
+        background-color: #F8F8FA;
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .covers table tr th {
+        font-size: 11px;
+        font-weight: 600;
+        color: #9494A4;
+        padding-bottom: 10px;
+
+    }
+
+    .covers table tr td {
+        color: #2D2D2D;
+        font-size: 11px;
+        font-weight: 500;
+        width: 80%;
+    }
+
+    .bottom-content p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .bottom-content {
+        margin-bottom: 3rem;
+    }
+
+    .footer-text {
+        margin-top: 3rem;
+    }
+
+    .footer-text span {
+        font-weight: 600;
+        color: #122137;
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+
+    .footer-text p {
+        font-weight: 500;
+        color: #122137;
+
+        font-size: 13px;
+    }
+
+
+
+    .content {
+        margin-top: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+
+    .inner-content p {
+        font-size: 14px;
+        color: #122137;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .inner-content a {
+        color: #389DF5;
+        text-decoration: none;
+
+
+    }
+
+    .content h2 {
+        margin-bottom: 0;
+        margin-top: 0px;
+        font-size: 30px;
+        color: #122137;
+    }
+
+    .content span {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: #122137;
+    }
+
+    .bottom-content p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+
+    .bottom-content {
+        margin-bottom: 3rem;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <span>Obrigado por escolher a</span>
+        <h2>Essor Seguros!</h2>
+        <div class="inner-content">
+            <p>
+                Esta é a apólice do seu Seguro de Transportes.
+            </p>
+            <p>Aqui constam todas as informações referentes à contratação do seu seguro. É de suma importância que todas
+                as informações aqui contidas sejam lidas e conferidas e, em caso de alguma inconsistência, sejam
+                retificadas de imediato, para que não haja prejuízos a cobertura do seguro. Em caso de correções ou
+                alterações que possam ocorrer durante a vigência, entrar em contato com o seu corretor de Seguros. </p>
+            <p>Os Termos deste Contrato de Seguro (Condições Contratuais: Condições Gerais e Especiais) estão
+                disponíveis no site da Seguradora em <a href="#"><i>www.essor.com.br</i></a>, leia-os atentamente. </p>
+            <p>As condições contratuais/regulamento deste produto, protocolizadas pela sociedade seguradora junto à
+                SUSEP, poderão ser consultadas no endereço eletrônico <a href="#"> <i>www.susep.gov.br</i> </a>, de
+                acordo com o número de processo constante da apólice/proposta.</p>
+            <p> O registro do produto é automático e não representa aprovação ou recomendação por parte da Susep. O
+                segurado poderá consultar a situação cadastral do corretor de seguros e da sociedade seguradora no sítio
+                eletrônico <a href="#"> <i>www.susep.gov.br</i> </a> </p>
+            <p>SUSEP − Superintendência de Seguros Privados − Autarquia federal responsável pela fiscalização,
+                normatização e controle dos mercados de seguro, previdência complementar aberta, capitalização,
+                resseguro e corretagem de seguros. Atendimento exclusivo ao Consumidor (9h30 às 17h00) − Fone: 0800 021
+                8484. </p>
+            <p style="margin-top: 3.5rem;">Atenciosamente.</p>
+            <img
+                src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAABICAIAAACvCw3fAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsQBlSsOGwAAIhhJREFUeF7t3WWQLFWTBuC9uNvi7rC4w+LOwuLu7u4QuFsE7u7u7u7u7g6Lu8M+380vKipqWqptembi9I+Jvt2nTuXJzPdNOaf6Dvrnn3/+I72SBpIG2q2BIdo9YZovaSBp4F8aSNBKfpA00BENJGh1RK1p0qSBBK3kA0kDHdFAglZH1JomTRpI0Eo+kDTQEQ0kaHVErWnSpIEEreQDSQMd0UCCVkfUmiZNGkjQSj6QNNARDSRodUStadKkgQSt5ANJAx3RQIJWR9SaJk0aSNBKPpA00BENJGh1RK1p0qSBBK3kA0kDHdFAglZH1JomTRpI0Eo+kDTQEQ0kaHVErWnSpIFB7f1tjD///PO333776aeffv75Z2+8vPn111//+usvuh522GHHG2+8ccYZZ6SRRqqm+h9//PGzzz779NNPhxlmmIkmmsjgIYccsk/ZKRb1ww8/fPPNN6T9/fff//77b0KOOuqo/zn4NeKII/YpgfuaMJyBiT/88MOhhx56/PHH5xI1JIzB/IGexxhjjCmmmGKooYYaNGhQX1tUT3naAC2OFS9a+Pbbbz/++OM33njj9ddfp45PPvnkzTff/Oijj/iie9Pjeuutt/baa88000wVVQOZL7zwwgUXXHDRRRcB1U477bTGGmuMPPLIfUGPOMgCSWiBVvf8888/+OCDL7/88ueffw5sI4wwwlxzzfU/g1/TTz898/cFmfugDPzku+++Y+LTTz8dVDbZZJONNtqompwGf//99+EPX3zxxRJLLHH44YePNtpofY1tK8vPY1p8ffDBB7fccos1r7XWWrPPPvtUU0018cQTAwb+HmWUUUSqIYb4d9qJpbbZZhtOWe2Ot9122zrrrDPWWGNxzeGGG26PPfZ45513WhSvLZejTIi65pprNt544znnnHOyySbDtTBvRcGg1igU+3Dddde99dZb23LTATkJqt1rr72mnHJK9p1mmmkOOuigGst866239t57bx6FuWQxCy200DPPPIPI+oVmWo1alnrttdc+/PDD/zf4JUcCjMknn3zCCSeUIHE+zOQNgAWy/2vwy4c9gX777bdfeeWVX3311aSTTnrPPfdQ6/bbbw+Kpuoi+/7yyy8kefzxx60RznkGCSHN0pZZZplJJplk3HHH9d4nht10003erLjiivvtt9/oo4/eL/KW3tTtiy++iJ4uvvji9957748//phtttk23HDD7bbbrqIML7300vXXX4+1559//ueeew4jA+SZZ57pL0brTbGbu9eQBxxwQHNXxlUyIni4++67pYJiFF5ZaqmlFl988YUXXvi/B7/mm2++eeedV7JEj14C2vDDD1+4Ix56++23zz333K+//trgRRZZ5P7775dDSgBcnsGyFTmbvlZyCzCXX375Aw88ACpIQU6oxBKTt912W+kfaS1z5plnxggiG+xJV+gBtLJw3fTdB9KFr7322nXXXXfzzTdLCKV5kj11AVeZdtppey5TESH407niav3113/33Xfff/99ziMp4D/9QrGtdggRNtfnczJgoDr44IP3339/2TNUgBOtjT322LWxoYAR7uCTEy+wwALLL798IE1hRpVdL7TEoieeeELNLS1ZddVVrZFUWBO0hF9wCgmlK9NNNx2MibECF9dpb3+oX2MMilSkTHz11VeL+awcLiHgQ05hafTGAdSxjz76KHraeeedUbZOBsKaeuqpqb1/FFqt/w4hz6MsrkZHAiAscbKG/IAXPvvss6eddtr/Dn7xS9kgYltuueVmnHHGhqbqxGD4gSglgWJ66623Rp+WzCeEZZYuRGCRlvydEKNfz6ljfOqpp2pF4FDhHQEptKwIDeGjwtJQLSVfddVV4Lf55psbI4WRimsOycD7kR6aj1qoxYIvvfRSOSF9bbHFFgJUE0mwlJoeI4ccc8wxX3nlFc0MU8mwxYeuq9IGANmWXnppqSDBLNbCrVdkhqusmlI5cAiJMe8RyqCuv5BrpzWsrDrppJNk1Fp84hX2lDZLqpVMYNMztVPcah7qCS266KJ4DXGLdbY66FyTrNPStnH+5qGlY3HhhReqL2kBDBZbbDHxqnbhju+VsOeccw44Rb7kE3Ffj36VVVbR/IBVmcCXX36Jn6ieAR555JETTjgBgH3YxmWXnwp+4FxOwiGIoR0qli677LLoNnMLG3dKrJNPPllTR/NwwQUXNL67PQy++Nhjjx1zzDH2CThrz/UKDlTKFoofi+pZ/bLFKaecct555zFWeXUVRlKaHOSyyy6T4SubV155ZbxjQkwkwe7ZoFJsc4Cnn356hhlmmHvu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' />
+
+        </div>
+        <div class="bottom-content">
+            <p>Filipe Bonetti Alves – Diretor/Presidente</p>
+            <p>Essor Seguros S.A. </p>
+            <p>Rua Visconde de Inhauma, 83 - Sala 1801 Centro -</p>
+            <p>Rio de Janeiro/RJ - CEP 20091-007</p>
+        </div>
+    </div>
+
+
+
+    <div class="content-head">
+        <div style="width: 100%; display: flex; page-break-before: always;">
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">SEGURADORA</span>
+                <p>ESSOR SEGUROS S.A.</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">CÓD. SEGURADORA</span>
+                <p>01490</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">RUC</span>
+                <p>14.525.684/0001-50</p>
+            </div>
+
+        </div>
+        <div style="width: 100%; display: flex;">
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">APÓLICE NÚMERO</span>
+                <p>{{:policy_no}}</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">PROPOSTA NÚMERO</span>
+                <p>{{:proposal_no}}</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">ENDOSSO NÚMERO</span>
+                <p>{{:endosso_no}}</p>
+            </div>
+
+        </div>
+        <hr>
+        <div class="insured-data">
+            <h2>Dados do Segurado</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="2">
+                        <span class="lightext">NOMBRE:</span>
+                        <span class="darktext">{{:customer_name}}</span>
+                    </td>
+
+                    <td colspan="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">RUC:</span>
+                        <span class="darktext">{{:customer_ruc}}</span>
+                    </td>
+                    <td colspan="2">
+                        <span class="lightext">DIRECCIÓN</span>
+                        <span class="darktext">{{:customer_address}}</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">VECINDARIO</span>
+                        <span class="darktext">{{:customer_district}}</span>
+                    </td>
+                    <td colspan="1">
+                        <span class="lightext">NÚMERO</span>
+                        <span class="darktext">{{:customer_address_no}}</span>
+                    </td>
+                    <td colspan="1">
+                        <span class="lightext">COMPL.</span>
+                        <span class="darktext">{{:customer_address_info}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- <td colspan="1">
+                        <span class="lightext">CEP</span>
+                        <span class="darktext">{{:customer_zipcode}}</span>
+                    </td> -->
+                    <td colspan="1">
+                        <span class="lightext">CIUDAD</span>
+                        <span class="darktext">{{:customer_city}}</span>
+                    </td>
+                    <td colspan="1">
+                        <span class="lightext">UF</span>
+                        <span class="darktext">{{:customer_state}}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">TELÉFONO</span>
+                        <span class="darktext">{{:customer_phone}}</span>
+                    </td>
+                    <td colspan="2">
+                        <span class="lightext">CORREO ELECTRÓNICO</span>
+                        <span class="darktext">{{:customer_email}}</span>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="broker-data">
+            <h2>Dados do Corretor</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="1" style="width: 71%;">
+                        <span class="lightext">NOMBRE</span>
+                        <span class="darktext">{{:broker_company_name}}</span>
+                    </td>
+
+                    <td colspan="1">
+                        <span class="lightext">SUSEP</span>
+                        <span class="darktext">{{:broker_company_reg_no}}</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="insurance-data">
+            <h2>Dados do Seguro</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">PRODUCTO</span>
+                        <span class="darktext">{{:product_type}}</span>
+                    </td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">RAMA</span>
+                        <span class="darktext">{{:ramo}}</span>
+                    </td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">TIPO SEGURO</span>
+                        <span class="darktext">SEGURO NOVO</span>
+                    </td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <span class="lightext">MODALIDADE</span>
+                        <span class="darktext">{{:insurance_type}}</span>
+                    </td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
+                </tr>
+            </table>
+        </div>
+        <div style="width: 100%; display: flex; margin-top: 1rem;">
+            <div class="box" style="width: 33.6%; margin-left: 0;">
+                <span class="lightext">IMPORTANCIA ASEGURADA</span>
+                <p>{{:total_amount}}</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">LÍMITE MÁXIMO DE GARANTÍA</span>
+                <p>{{:desired_policy_limit}}</p>
+            </div>
+            <div class="box" style="width: 33.6%; margin-right: 0;">
+                <span class="lightext">FRANQUICIA / POS</span>
+                <p>{{if product_id == 1}}*Será aplicado a Franquia de {{:deductible_name}} com mínimo de {{if
+                    deductible_amount}}
+                    {{:deductible_amount}} {{else}} R$1.000,00 {{/if}}para cada ocorrência de sinistro.{{/if}}
+                    {{if product_id == 2}}*Será aplicado a Franquia de {{:deductible_name}} sobre o valor da Importancia
+                    Segurada da
+                    Viagem.{{/if}}
+                    {{if product_id == 10}}{{:deductible_details}}{{/if}}
+                    {{if product_id == 11}}-{{/if}}
+                </p>
+            </div>
+
+        </div>
+        <div style="width: 100%; display: flex; margin-bottom: 1rem;">
+            <div class="box" style="width: 33.6%; margin-left: 0;">
+                <span class="lightext">TÉRMINO</span>
+                <p>DAS 24 HORAS DE {{:policy_start_date}}
+                    AS 24 HORAS DE {{:policy_end_date}}</p>
+            </div>
+            <div class="box" style="width: 33.6%;">
+                <span class="lightext">PREMIO MÍNIMO</span>
+                <p>{{:minimum_award}}</p>
+            </div>
+            <div class="box" style="width: 33.6%; margin-right: 0;">
+                <span class="lightext">TAXA</span>
+                <p>{{:insurance_rate}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <div class="bottom-content-pagination">
+        <div class="left">
+            <span style="margin-right: 20px;">PROCESSO SUSEP</span>
+            <p>115414.613862/2021-45</p>
+        </div>
+        <div class="right">
+            <span style="margin-right: 20px;">PÁGINA</span>
+            <p>1</p>
+        </div>
+    </div> -->
+
+    <div class="content-page">
+        <div class="premium-statement" style="page-break-before: always;">
+            <h2>Demonstrativo do Prêmio</h2>
+            <div class="light-bg">
+                <span>PRÊMIO LÍQUIDO</span>
+                <p>{{if insurance_type_id == 1}} {{:net_insurance_cost_with_commission}} {{else}} {{if
+                    premium_calculation_type == 1}} {{:net_insurance_cost_with_commission}} {{else}} A
+                    calcular {{/if}}{{/if}}</p>
+            </div>
+            <div class="light-bg">
+                <span>Adicional de fracionamento</span>
+                <p>-</p>
+            </div>
+            <div class="light-bg">
+                <span>I.o.f.</span>
+                <p>{{if insurance_type_id == 1}} {{if is_currency_real}}{{:taxa}}{{else}}-{{/if}} {{else}} {{if
+                    premium_calculation_type == 1}} {{if is_currency_real}}{{:taxa}}{{else}}-{{/if}}
+                    {{else}}-{{/if}}{{/if}}</p>
+            </div>
+            <div class="light-bg">
+                <span>PRÊMIO TOTAL</span>
+                <p>{{if insurance_type_id == 1}} {{:total_insurance_cost}} {{else}}
+                    {{if premium_calculation_type == 1}} {{:total_insurance_cost}} {{else}} A calcular
+                    {{/if}}{{/if}}</p>
+            </div>
+            <div class="main-points">
+                <p>1) Caso não haja o pagamento da primeira parcela, o seguro sera cancelado desde o inicio da vigência.
+                </p>
+                <p>2) Apos o vencimento da segunda parcela, serão cobrados multa e juros de mora, conforme estabelecido
+                    nas Condições Gerais, podendo ficar prejudicada a cobertura do seguro até  a regularização. O não
+                    pagamento das demais parcelas implicar no cancelamento da apólice, nos termos da cláusula de
+                    fracionamento de prêmio contida nas condições gerais do contrato de seguro, disponível no site
+                    www.essor.com.br.</p>
+            </div>
+            <h2>Parcelamento</h2>
+            <table style="width: 100%;">
+                <tr>
+                    <th>PARCELA</th>
+                    <th>VALOR</th>
+                    <th>MEIO DE PAGAMENTO</th>
+                    <th>Data de vencimento</th>
+                </tr>
+                {{if premium_calculation_type == 1 or insurance_type_id == 1}}
+                {{for proposal_installments}}
+                <tr class="table-list">
+                    <td>{{:no_of_installment}}</td>
+                    <td style="width: 100px; padding-left: 2rem;">{{:amount}}</td>
+                    <td>Ficha de Compensação</td>
+                    <td style="width: 100px; padding-left: 2rem;">{{:due_date}}</td>
+                </tr>
+                {{/for}}
+                {{else}}
+                <tr class="table-list">
+                    <td style=" text-align: center; padding-right: 3rem;">-</td>
+                    <td style=" text-align: center; padding-right: 3rem;">-</td>
+                    <td style=" text-align: center; padding-right: 4rem;">-</td>
+                    <td style=" text-align: center; padding-right: 3rem;">-</td>
+                </tr>
+                {{/if}}
+            </table>
+        </div>
+        <div class="covers" style="page-break-before: always;">
+            <h2>Coberturas</h2>
+            <table style="width: 100%; margin-bottom: 0.5rem;">
+                <tr>
+                    <th>COBERTURA BÁSICA</th>
+                    <th style="text-align: left;">PRÊMIO LíQUIDO</th>
+                </tr>
+                {{for basicCoverages}}
+                {{if #getIndex() == 0}}
+                <tr>
+                    <td>{{:name}}</td>
+                    <td style="text-align: center;">{{:~root.revert_clause_amount}}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td>{{:name}}</td>
+                    <td style="text-align: center;">{{:~root.clause_total_amount}}</td>
+                </tr>
+                {{/if}}
+                {{/for}}
+            </table>
+            <table style="width: 100%; margin-bottom: 2rem;">
+                <tr>
+                    <th>COBERTURaS ADICIONAIS</th>
+                    <th style="text-align: left;">PRÊMIO LíQUIDO</th>
+                </tr>
+                {{for additionalCoverages}}
+                <tr>
+                    <td>{{:name}}</td>
+                    <td style="text-align: center;">{{:~root.clause_total_amount}}</td>
+                </tr>
+                {{/for}}
+            </table>
+            <!-- <table style="width: 100%; ">
+                <tr>
+                    <th>COBERTURaS ESPECÍFICAS</th>
+                    <th style="text-align: left;">PRÊMIO LíQUIDO</th>
+                </tr>
+                {{for specificCoverages}}
+                <tr>
+                    <td>{{:name}}</td>
+                    <td style="text-align: center;">{{:~root.clause_total_amount}}</td>
+                </tr>
+                {{/for}}
+            </table> -->
+            <div class="footer-text" style="page-break-before: always;">
+                <span>
+                    PROCESSO SUSEP NUMERO {{:susep}}
+                </span>
+                {{if is_currency_real}}
+                <p>Em atendimento a Lei 12.741/12 informamos que incidem as aliquotas de 0,65% de PIS, de 4% de COFINS e
+                    de 0 a 7,38% de
+                    IOF sobre os prêmios de seguros, apurados e recolhidos nos termos da legislação aplicável.</p>
+                {{/if}}
+                <p></p>
+                <span style="    margin-top: 1rem;
+                display: inline-block;">FALE COM A ESSOR SEGUROS </span>
+                <p style="margin-bottom: 0;">Atendimento ao Deficiente Auditivo: SAC 0800 707 4464 </p>
+                <p>SAC: 0800 521 1007</p>
+                <p>Ouvidoria: 0800 777 0438</p>
+                <p style="margin-top: 2rem;">São Paulo, {{:proposal_created_at}}</p>
+                <img
+                    src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR4AAABICAIAAACvCw3fAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsQBlSsOGwAAIhhJREFUeF7t3WWQLFWTBuC9uNvi7rC4w+LOwuLu7u4QuFsE7u7u7u7u7g6Lu8M+380vKipqWqptembi9I+Jvt2nTuXJzPdNOaf6Dvrnn3/+I72SBpIG2q2BIdo9YZovaSBp4F8aSNBKfpA00BENJGh1RK1p0qSBBK3kA0kDHdFAglZH1JomTRpI0Eo+kDTQEQ0kaHVErWnSpIEEreQDSQMd0UCCVkfUmiZNGkjQSj6QNNARDSRodUStadKkgQSt5ANJAx3RQIJWR9SaJk0aSNBKPpA00BENJGh1RK1p0qSBBK3kA0kDHdFAglZH1JomTRpI0Eo+kDTQEQ0kaHVErWnSpIFB7f1tjD///PO333776aeffv75Z2+8vPn111//+usvuh522GHHG2+8ccYZZ6SRRqqm+h9//PGzzz779NNPhxlmmIkmmsjgIYccsk/ZKRb1ww8/fPPNN6T9/fff//77b0KOOuqo/zn4NeKII/YpgfuaMJyBiT/88MOhhx56/PHH5xI1JIzB/IGexxhjjCmmmGKooYYaNGhQX1tUT3naAC2OFS9a+Pbbbz/++OM33njj9ddfp45PPvnkzTff/Oijj/iie9Pjeuutt/baa88000wVVQOZL7zwwgUXXHDRRRcB1U477bTGGmuMPPLIfUGPOMgCSWiBVvf8888/+OCDL7/88ueffw5sI4wwwlxzzfU/g1/TTz898/cFmfugDPzku+++Y+LTTz8dVDbZZJONNtqompwGf//99+EPX3zxxRJLLHH44YePNtpofY1tK8vPY1p8ffDBB7fccos1r7XWWrPPPvtUU0018cQTAwb+HmWUUUSqIYb4d9qJpbbZZhtOWe2Ot9122zrrrDPWWGNxzeGGG26PPfZ45513WhSvLZejTIi65pprNt544znnnHOyySbDtTBvRcGg1igU+3Dddde99dZb23LTATkJqt1rr72mnHJK9p1mmmkOOuigGst866239t57bx6FuWQxCy200DPPPIPI+oVmWo1alnrttdc+/PDD/zf4JUcCjMknn3zCCSeUIHE+zOQNgAWy/2vwy4c9gX777bdfeeWVX3311aSTTnrPPfdQ6/bbbw+Kpuoi+/7yyy8kefzxx60RznkGCSHN0pZZZplJJplk3HHH9d4nht10003erLjiivvtt9/oo4/eL/KW3tTtiy++iJ4uvvji9957748//phtttk23HDD7bbbrqIML7300vXXX4+1559//ueeew4jA+SZZ57pL0brTbGbu9eQBxxwQHNXxlUyIni4++67pYJiFF5ZaqmlFl988YUXXvi/B7/mm2++eeedV7JEj14C2vDDD1+4Ix56++23zz333K+//trgRRZZ5P7775dDSgBcnsGyFTmbvlZyCzCXX375Aw88ACpIQU6oxBKTt912W+kfaS1z5plnxggiG+xJV+gBtLJw3fTdB9KFr7322nXXXXfzzTdLCKV5kj11AVeZdtppey5TESH407niav3113/33Xfff/99ziMp4D/9QrGtdggRNtfnczJgoDr44IP3339/2TNUgBOtjT322LWxoYAR7uCTEy+wwALLL798IE1hRpVdL7TEoieeeELNLS1ZddVVrZFUWBO0hF9wCgmlK9NNNx2MibECF9dpb3+oX2MMilSkTHz11VeL+awcLiHgQ05hafTGAdSxjz76KHraeeedUbZOBsKaeuqpqb1/FFqt/w4hz6MsrkZHAiAscbKG/IAXPvvss6eddtr/Dn7xS9kgYltuueVmnHHGhqbqxGD4gSglgWJ66623Rp+WzCeEZZYuRGCRlvydEKNfz6ljfOqpp2pF4FDhHQEptKwIDeGjwtJQLSVfddVV4Lf55psbI4WRimsOycD7kR6aj1qoxYIvvfRSOSF9bbHFFgJUE0mwlJoeI4ccc8wxX3nlFc0MU8mwxYeuq9IGANmWXnppqSDBLNbCrVdkhqusmlI5cAiJMe8RyqCuv5BrpzWsrDrppJNk1Fp84hX2lDZLqpVMYNMztVPcah7qCS266KJ4DXGLdbY66FyTrNPStnH+5qGlY3HhhReqL2kBDBZbbDHxqnbhju+VsOeccw44Rb7kE3Ffj36VVVbR/IBVmcCXX36Jn6ieAR555JETTjgBgH3YxmWXnwp+4FxOwiGIoR0qli677LLoNnMLG3dKrJNPPllTR/NwwQUXNL67PQy++Nhjjx1zzDH2CThrz/UKDlTKFoofi+pZ/bLFKaecct555zFWeXUVRlKaHOSyyy6T4SubV155ZbxjQkwkwe7ZoFJsc4Cnn356hhlmmHvu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' />
+                <div class="bottom-content">
+                    <p>Filipe Bonetti Alves – Diretor/Presidente</p>
+                    <p>Essor Seguros S.A. </p>
+                    <p>Rua Visconde de Inhauma, 83 - Sala 1801 Centro -</p>
+                    <p>Rio de Janeiro/RJ - CEP 20091-007</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
