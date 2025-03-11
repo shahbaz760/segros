@@ -7,7 +7,7 @@ on:
     
 jobs:
   build:
-    runs-on: self_hosted
+    runs-on: self-hosted
     steps:
           - name: Checkout code
             uses: actions/checkout@v3
@@ -32,7 +32,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Set up SSH key for EC2 access 
         run: |
